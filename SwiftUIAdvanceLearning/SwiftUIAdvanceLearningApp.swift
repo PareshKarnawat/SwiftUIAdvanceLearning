@@ -13,13 +13,14 @@ struct SwiftUIAdvanceLearningApp: App {
             let appearance = UINavigationBarAppearance()
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.subtitleTextAttributes = [.foregroundColor: UIColor.white.withAlphaComponent(0.7)]
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                SwiftUIViewModifier()
+                SwiftUIAdvanceLearning()
             }
         }
     }

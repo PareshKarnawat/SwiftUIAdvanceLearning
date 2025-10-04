@@ -1,5 +1,5 @@
 //
-//  SwiftUIViewModifier.swift
+//  ViewModifierDemo.swift
 //  SwiftUIAdvanceLearning
 //
 //  Created by Paresh  Karnawat on 03/10/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftUIViewModifier: View {
+struct ViewModifierDemo: View {
     var body: some View {
         ZStack {
             // Background: gray with white gradient overlay
@@ -54,5 +54,5 @@ struct SwiftUIViewModifier: View {
 }
 
 #Preview {
-    SwiftUIViewModifier()
+    ViewModifierDemo()
 }
