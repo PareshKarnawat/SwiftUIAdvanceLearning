@@ -30,6 +30,9 @@ struct SwiftUIAdvanceLearning: View {
                         NavigationLink("Custom Button Style Demo") {
                             CustomButtonStyleDemo()
                         }
+                        NavigationLink("Custom Transition Demo") {
+                            CustomTransitionsDemo()
+                        }
                     }
                     .scrollContentBackground(.hidden)
                     .listStyle(.insetGrouped)
