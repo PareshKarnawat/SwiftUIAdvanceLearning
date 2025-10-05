@@ -8,38 +8,6 @@
 import SwiftUI
 
 struct MatchedGeometryEffectDemo: View {
-    
-    @State private var isClicked : Bool = false
-    @Namespace private var namespace
-    
-    var body: some View {
-        VStack {
-            if !isClicked {
-                RoundedRectangle(cornerRadius: 25)
-                    .matchedGeometryEffect(id: "rectangle", in: namespace)
-                    .frame(width:100, height: 100)
-                    
-            }
-            Spacer()
-            
-            if isClicked {
-                RoundedRectangle(cornerRadius: 25)
-                    .matchedGeometryEffect(id: "rectangle", in: namespace)
-                    .frame(width:300, height: 200)
-                    
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.cyan)
-        .onTapGesture {
-            withAnimation(.easeInOut) {
-                isClicked.toggle()
-            }
-        }
-    }
-}
-
-struct MatchedGeometryEffectExample2: View {
     let categories: [String] = ["Home","Favourite", "Save"]
     let imagesName: [String] = ["house.fill","heart.fill", "square.and.arrow.down.fill"]
     @State private var selected: String = ""
@@ -63,26 +31,33 @@ struct MatchedGeometryEffectExample2: View {
             VStack {
                 if !isClicked {
                     RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.blue)
                         .matchedGeometryEffect(id: "rectangle", in: namespace)
                         .frame(width:100, height: 100)
-                        
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                isClicked.toggle()
+                            }
+                        }
                 }
                 Spacer()
                 
                 if isClicked {
                     RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.red)
                         .matchedGeometryEffect(id: "rectangle", in: namespace)
                         .frame(width:300, height: 200)
-                        
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                isClicked.toggle()
+                            }
+                        }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.cyan)
-            .onTapGesture {
-                withAnimation(.easeInOut) {
-                    isClicked.toggle()
-                }
-            }
+            
             
             HStack {
                 ForEach(Array(categories.enumerated()), id:\.offset) {
@@ -90,7 +65,7 @@ struct MatchedGeometryEffectExample2: View {
                     ZStack {
                         if selected == category {
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.cyan.opacity(0.5))
+                                .fill(Color.cyan)
                                 .matchedGeometryEffect(id: "categoryBackground", in: namespace2)
                         }
                         HStack{
@@ -101,6 +76,7 @@ struct MatchedGeometryEffectExample2: View {
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
                     .frame(height: 55)
+                    .contentShape(Rectangle())
                     .onTapGesture {
                         withAnimation(.spring()){
                             selected = category
@@ -110,9 +86,10 @@ struct MatchedGeometryEffectExample2: View {
             }
             .padding()
         }
+        .navigationTitle("Matched Geometry Effect")
     }
 }
 
 #Preview {
-    MatchedGeometryEffectExample2()
+    MatchedGeometryEffectDemo()
 }

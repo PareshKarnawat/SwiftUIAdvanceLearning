@@ -33,6 +33,9 @@ struct SwiftUIAdvanceLearning: View {
                         NavigationLink("Custom Transition Demo") {
                             CustomTransitionsDemo()
                         }
+                        NavigationLink("Matched Geometry Effect Demo") {
+                            MatchedGeometryEffectDemo()
+                        }
                     }
                     .scrollContentBackground(.hidden)
                     .listStyle(.insetGrouped)
